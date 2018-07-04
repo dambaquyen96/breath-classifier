@@ -15,6 +15,142 @@ logging.basicConfig(format='[%(levelname)s|%(asctime)s] %(message)s',
 
 global ARGS
 
+def create_weka_gfcc():
+    """
+    Create weka data file with feature: GFCC 40 coeffs
+    """
+    global ARGS
+
+    name = '_'.join(ARGS.labels.split(','))
+
+    fout = open('weka/GFCC40_TUNNING_{}.arff'.format(name), 'w')
+    fout.write('@RELATION {}_dataset\n\n'.format(name))
+
+    fout.write('@ATTRIBUTE MEAN_GFCC1	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC2	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC3	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC4	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC5	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC6	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC7	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC8	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC9	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC10	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC11	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC12	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC13	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC14	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC15	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC16	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC17	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC18	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC19	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC20	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC21	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC22	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC23	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC24	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC25	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC26	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC27	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC28	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC29	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC30	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC31	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC32	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC33	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC34	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC35	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC36	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC37	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC38	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC39	REAL\n')
+    fout.write('@ATTRIBUTE MEAN_GFCC40	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC1	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC2	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC3	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC4	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC5	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC6	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC7	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC8	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC9	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC10	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC11	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC12	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC13	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC14	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC15	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC16	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC17	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC18	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC19	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC20	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC21	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC22	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC23	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC24	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC25	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC26	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC27	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC28	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC29	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC30	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC31	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC32	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC33	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC34	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC35	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC36	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC37	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC38	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC39	REAL\n')
+    fout.write('@ATTRIBUTE STD_GFCC40	REAL\n')
+    fout.write('@ATTRIBUTE class 	{'+ARGS.labels+'}\n\n')
+    
+    fout.write('@DATA\n')
+
+    windowing = Windowing(type='hamming')
+    spectrum = Spectrum()
+    gfcc = GFCC(highFrequencyBound=6000,
+                inputSize=552,
+                lowFrequencyBound=0,
+                numberBands=40,
+                numberCoefficients=40,
+                sampleRate=44100)
+    for label in ARGS.labels.split(','):
+        dir = os.path.join(ARGS.dir, label)
+        logging.info('Access folder <{}>'.format(dir))
+        for file in sorted(os.listdir(dir)):
+            if file.endswith('.wav'):
+                logging.info('Process <{}>'.format(file))
+                path = os.path.join(dir, file)
+                loader = MonoLoader(filename=path, sampleRate=ARGS.sampleRate)
+                audio = loader()
+                cnt = 0
+                for window in FrameGenerator(audio, 
+                                            frameSize=ARGS.window_length*ARGS.sampleRate/1000, 
+                                            hopSize=ARGS.window_stride*ARGS.sampleRate/1000, 
+                                            startFromZero=True):
+                    gfccs = []
+                    for frame in FrameGenerator(window, 
+                                                frameSize=ARGS.frame_length*ARGS.sampleRate/1000, 
+                                                hopSize=ARGS.frame_stride*ARGS.sampleRate/1000, 
+                                                startFromZero=True):
+                        s = spectrum(windowing(frame))
+                        _, g = gfcc(s)
+                        gfccs.append(g)
+                    gfccs = np.array(gfccs)
+                    gfccs_mean = np.mean(gfccs, axis=0)
+                    gfccs_std = np.std(gfccs, axis=0)
+                    feat = np.concatenate((gfccs_mean, gfccs_std), axis=0).tolist()
+                    str_feat = [str(x) for x in feat]
+                    line = ','.join(str_feat)+','+label
+                    fout.write(line+'\n')
+                    cnt = cnt+1
+                logging.info('{} samples'.format(cnt))
+
+
 def create_weka_mfcc_13():
     """
     Create weka data file with feature: MFCC 13 coeffs, it's delta & double-delta (Total: 39)
@@ -189,8 +325,17 @@ def main():
         type=int,
         default=10,
         help='Frame stride of each sample in ms')
+    parser.add_argument(
+        '--feature',
+        type=str,
+        choices=['mfcc', 'gfcc'],
+        default='mfcc',
+        help='Type of features')
     ARGS = parser.parse_args()
-    create_weka_mfcc_13()
+    if ARGS.feature == 'mfcc':
+        create_weka_mfcc_13()
+    elif ARGS.feature == 'gfcc':
+        create_weka_gfcc()
 
 if __name__ == "__main__":
     main()
