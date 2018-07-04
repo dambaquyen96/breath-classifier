@@ -15,7 +15,10 @@ logging.basicConfig(format='[%(levelname)s|%(asctime)s] %(message)s',
 
 global ARGS
 
-def create_weka():
+def create_weka_mfcc_13():
+    """
+    Create weka data file with feature: MFCC 13 coeffs, it's delta & double-delta (Total: 39)
+    """
     global ARGS
 
     name = '_'.join(ARGS.labels.split(','))
@@ -107,7 +110,12 @@ def create_weka():
 
     windowing = Windowing(type='hamming')
     spectrum = Spectrum()
-    mfcc = MFCC(inputSize=552)
+    mfcc = MFCC(highFrequencyBound=6000,
+                inputSize=552,',
+                lowFrequencyBound=0,
+                numberBands=40,
+                numberCoefficients=13
+                sampleRate=44100)
     for label in ARGS.labels.split(','):
         dir = os.path.join(ARGS.dir, label)
         logging.info('Access folder <{}>'.format(dir))
@@ -182,7 +190,7 @@ def main():
         default=10,
         help='Frame stride of each sample in ms')
     ARGS = parser.parse_args()
-    create_weka()
+    create_weka_mfcc_13()
 
 if __name__ == "__main__":
     main()
