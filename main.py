@@ -23,7 +23,7 @@ def create_weka_mfcc_13():
 
     name = '_'.join(ARGS.labels.split(','))
 
-    fout = open('weka/{}.arff'.format(name), 'w')
+    fout = open('weka/MFCC78_TUNNING_{}.arff'.format(name), 'w')
     fout.write('@RELATION {}_dataset\n\n'.format(name))
 
     fout.write('@ATTRIBUTE MEAN_MFCC1	REAL\n')
