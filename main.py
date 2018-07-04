@@ -23,7 +23,7 @@ def create_weka_gfcc():
 
     name = '_'.join(ARGS.labels.split(','))
 
-    fout = open('weka/GFCC40_TUNNING_{}.arff'.format(name), 'w')
+    fout = open('weka/GFCC80_{}.arff'.format(name), 'w')
     fout.write('@RELATION {}_dataset\n\n'.format(name))
 
     fout.write('@ATTRIBUTE MEAN_GFCC1	REAL\n')
@@ -149,7 +149,6 @@ def create_weka_gfcc():
                     fout.write(line+'\n')
                     cnt = cnt+1
                 logging.info('{} samples'.format(cnt))
-
 
 def create_weka_mfcc_13():
     """
