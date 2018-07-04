@@ -18,8 +18,10 @@ global ARGS
 def create_weka():
     global ARGS
 
-    fout = open('breath_wheeze.arff', 'w')
-    fout.write('@RELATION breath_wheeze_dataset\n\n')
+    name = '_'.join(ARGS.labels.split(','))
+
+    fout = open('weka/{}.arff'.format(name), 'w')
+    fout.write('@RELATION {}_dataset\n\n'.format(name))
 
     fout.write('@ATTRIBUTE MEAN_MFCC1	REAL\n')
     fout.write('@ATTRIBUTE MEAN_MFCC2	REAL\n')
@@ -152,14 +154,14 @@ def main():
     parser.add_argument(
         '--labels',
         type=str,
-        default='Breath,Wheeze',
+        default='Breath,NonBreath',
         help='Label name of each class')
     parser.add_argument(
         '--sampleRate',
         type=int,
         default=44100,
         help='Sample rate of audio')
-    parser.add_argument(
+    parser.add_argument(    
         '--window_length',
         type=int,
         default=2000,
