@@ -1,0 +1,127 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.RandomForest -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
+Relation:     BreathOtherTrain_dataset
+Instances:    90164
+Attributes:   81
+              MEAN_GFCC1
+              MEAN_GFCC2
+              MEAN_GFCC3
+              MEAN_GFCC4
+              MEAN_GFCC5
+              MEAN_GFCC6
+              MEAN_GFCC7
+              MEAN_GFCC8
+              MEAN_GFCC9
+              MEAN_GFCC10
+              MEAN_GFCC11
+              MEAN_GFCC12
+              MEAN_GFCC13
+              MEAN_GFCC14
+              MEAN_GFCC15
+              MEAN_GFCC16
+              MEAN_GFCC17
+              MEAN_GFCC18
+              MEAN_GFCC19
+              MEAN_GFCC20
+              MEAN_GFCC21
+              MEAN_GFCC22
+              MEAN_GFCC23
+              MEAN_GFCC24
+              MEAN_GFCC25
+              MEAN_GFCC26
+              MEAN_GFCC27
+              MEAN_GFCC28
+              MEAN_GFCC29
+              MEAN_GFCC30
+              MEAN_GFCC31
+              MEAN_GFCC32
+              MEAN_GFCC33
+              MEAN_GFCC34
+              MEAN_GFCC35
+              MEAN_GFCC36
+              MEAN_GFCC37
+              MEAN_GFCC38
+              MEAN_GFCC39
+              MEAN_GFCC40
+              STD_GFCC1
+              STD_GFCC2
+              STD_GFCC3
+              STD_GFCC4
+              STD_GFCC5
+              STD_GFCC6
+              STD_GFCC7
+              STD_GFCC8
+              STD_GFCC9
+              STD_GFCC10
+              STD_GFCC11
+              STD_GFCC12
+              STD_GFCC13
+              STD_GFCC14
+              STD_GFCC15
+              STD_GFCC16
+              STD_GFCC17
+              STD_GFCC18
+              STD_GFCC19
+              STD_GFCC20
+              STD_GFCC21
+              STD_GFCC22
+              STD_GFCC23
+              STD_GFCC24
+              STD_GFCC25
+              STD_GFCC26
+              STD_GFCC27
+              STD_GFCC28
+              STD_GFCC29
+              STD_GFCC30
+              STD_GFCC31
+              STD_GFCC32
+              STD_GFCC33
+              STD_GFCC34
+              STD_GFCC35
+              STD_GFCC36
+              STD_GFCC37
+              STD_GFCC38
+              STD_GFCC39
+              STD_GFCC40
+              class
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+RandomForest
+
+Bagging with 100 iterations and base learner
+
+weka.classifiers.trees.RandomTree -K 0 -M 1.0 -V 0.001 -S 1 -do-not-check-capabilities
+
+Time taken to build model: 126.28 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 1.18 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       16594               84.6762 %
+Incorrectly Classified Instances      3003               15.3238 %
+Kappa statistic                          0.6036
+Mean absolute error                      0.2637
+Root mean squared error                  0.3471
+Relative absolute error                 67.3667 %
+Root relative squared error             75.9133 %
+Total Number of Instances            19597     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.629    0.064    0.802      0.629    0.705      0.612    0.881     0.809     Breath
+                 0.936    0.371    0.860      0.936    0.896      0.612    0.881     0.943     Other
+Weighted Avg.    0.847    0.281    0.843      0.847    0.841      0.612    0.881     0.904     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+  3590  2117 |     a = Breath
+   886 13004 |     b = Other
+
