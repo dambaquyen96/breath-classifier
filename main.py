@@ -111,10 +111,10 @@ def create_weka_mfcc_13():
     windowing = Windowing(type='hamming')
     spectrum = Spectrum()
     mfcc = MFCC(highFrequencyBound=6000,
-                inputSize=552,',
+                inputSize=552,
                 lowFrequencyBound=0,
                 numberBands=40,
-                numberCoefficients=13
+                numberCoefficients=13,
                 sampleRate=44100)
     for label in ARGS.labels.split(','):
         dir = os.path.join(ARGS.dir, label)
