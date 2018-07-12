@@ -1,0 +1,133 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.RandomForest -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
+Relation:     breath_dataset
+Instances:    35824
+Attributes:   81
+              MEAN_GFCC1
+              MEAN_GFCC2
+              MEAN_GFCC3
+              MEAN_GFCC4
+              MEAN_GFCC5
+              MEAN_GFCC6
+              MEAN_GFCC7
+              MEAN_GFCC8
+              MEAN_GFCC9
+              MEAN_GFCC10
+              MEAN_GFCC11
+              MEAN_GFCC12
+              MEAN_GFCC13
+              MEAN_GFCC14
+              MEAN_GFCC15
+              MEAN_GFCC16
+              MEAN_GFCC17
+              MEAN_GFCC18
+              MEAN_GFCC19
+              MEAN_GFCC20
+              MEAN_GFCC21
+              MEAN_GFCC22
+              MEAN_GFCC23
+              MEAN_GFCC24
+              MEAN_GFCC25
+              MEAN_GFCC26
+              MEAN_GFCC27
+              MEAN_GFCC28
+              MEAN_GFCC29
+              MEAN_GFCC30
+              MEAN_GFCC31
+              MEAN_GFCC32
+              MEAN_GFCC33
+              MEAN_GFCC34
+              MEAN_GFCC35
+              MEAN_GFCC36
+              MEAN_GFCC37
+              MEAN_GFCC38
+              MEAN_GFCC39
+              MEAN_GFCC40
+              STD_GFCC1
+              STD_GFCC2
+              STD_GFCC3
+              STD_GFCC4
+              STD_GFCC5
+              STD_GFCC6
+              STD_GFCC7
+              STD_GFCC8
+              STD_GFCC9
+              STD_GFCC10
+              STD_GFCC11
+              STD_GFCC12
+              STD_GFCC13
+              STD_GFCC14
+              STD_GFCC15
+              STD_GFCC16
+              STD_GFCC17
+              STD_GFCC18
+              STD_GFCC19
+              STD_GFCC20
+              STD_GFCC21
+              STD_GFCC22
+              STD_GFCC23
+              STD_GFCC24
+              STD_GFCC25
+              STD_GFCC26
+              STD_GFCC27
+              STD_GFCC28
+              STD_GFCC29
+              STD_GFCC30
+              STD_GFCC31
+              STD_GFCC32
+              STD_GFCC33
+              STD_GFCC34
+              STD_GFCC35
+              STD_GFCC36
+              STD_GFCC37
+              STD_GFCC38
+              STD_GFCC39
+              STD_GFCC40
+              class
+Test mode:    split 70.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+RandomForest
+
+Bagging with 100 iterations and base learner
+
+weka.classifiers.trees.RandomTree -K 0 -M 1.0 -V 0.001 -S 1 -do-not-check-capabilities
+
+Time taken to build model: 36.3 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.86 seconds
+
+=== Summary ===
+
+Correctly Classified Instances       10673               99.3114 %
+Incorrectly Classified Instances        74                0.6886 %
+Kappa statistic                          0.9909
+Mean absolute error                      0.0426
+Root mean squared error                  0.0865
+Relative absolute error                 14.0261 %
+Root relative squared error             22.19   %
+Total Number of Instances            10747     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.997    0.002    0.994      0.997    0.996      0.994    1.000     0.999     slight_breath
+                 0.996    0.002    0.993      0.996    0.994      0.993    1.000     0.999     normal_breath
+                 0.996    0.000    1.000      0.996    0.998      0.998    1.000     1.000     deep_breath
+                 0.997    0.001    0.996      0.997    0.997      0.995    1.000     1.000     strong_breath
+                 0.955    0.003    0.972      0.955    0.963      0.960    0.998     0.993     unknown
+Weighted Avg.    0.993    0.002    0.993      0.993    0.993      0.991    1.000     0.999     
+
+=== Confusion Matrix ===
+
+    a    b    c    d    e   <-- classified as
+ 3128    2    0    0    7 |    a = slight_breath
+    1 2520    0    0    9 |    b = normal_breath
+    0    2 1114    2    0 |    c = deep_breath
+    0    1    0 3046    9 |    d = strong_breath
+   18   14    0    9  865 |    e = unknown
+

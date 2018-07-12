@@ -110,8 +110,10 @@ def create_weka_gfcc():
     
     fout.write('@DATA\n')
 
-    windowing = Windowing(type='hamming')
-    spectrum = Spectrum()
+    windowing = Windowing(type='hamming',
+                        size=1104,
+                        zeroPhase=False)
+    spectrum = Spectrum(size=1104)
     gfcc = GFCC(highFrequencyBound=6000,
                 inputSize=552,
                 lowFrequencyBound=0,
@@ -121,7 +123,8 @@ def create_weka_gfcc():
 
     logging.info('Preprocess label <{}>'.format(ARGS.txt))
     list_label = ARGS.labels.split(',')
-    sample_label = [4]*50000
+    sample_label = [4]*50020
+    window_label = [4]*50000
     with open(ARGS.txt) as f:
         content = f.readlines()
         for line in content:
@@ -136,24 +139,36 @@ def create_weka_gfcc():
             if idx_label == 4:
                 continue
             for i in range(si, ei+1):
-                if sample_label[i] != 4:
-                    sample_label[i] = -1
+                sample_label[i] = idx_label
+    for i in range(0, len(window_label)):
+        ok = 0
+        for j in range(i, i+20):
+            if sample_label[j] != 4:
+                if ok == 0:
+                    window_label[i] = sample_label[j]
+                    ok = 1
                 else:
-                    sample_label[i] = idx_label
-
-    return
-            
-                                
-
-    logging.info('Process <{}>'.format(file))
-    path = os.path.join(dir, file)
-    loader = MonoLoader(filename=path, sampleRate=ARGS.sampleRate)
+                    if window_label[i] != sample_label[j]:
+                        window_label[i] = -1
+    # print(sample_label)               
+    # print(window_label)           
+    # print(list_label)  
+    # return
+    
+    logging.info('Process <{}>'.format(ARGS.wav))
+    loader = MonoLoader(filename=ARGS.wav, sampleRate=ARGS.sampleRate)
     audio = loader()
+    idx = 0
     cnt = 0
     for window in FrameGenerator(audio, 
                                 frameSize=ARGS.window_length*ARGS.sampleRate/1000, 
                                 hopSize=ARGS.window_stride*ARGS.sampleRate/1000, 
                                 startFromZero=True):
+        if window_label[idx] == -1:
+            logging.info('Index {} failed'.format(idx))
+            idx += 1
+            continue
+        label = list_label[window_label[idx]]
         gfccs = []
         for frame in FrameGenerator(window, 
                                     frameSize=ARGS.frame_length*ARGS.sampleRate/1000, 
@@ -170,7 +185,10 @@ def create_weka_gfcc():
         line = ','.join(str_feat)+','+label
         fout.write(line+'\n')
         cnt = cnt+1
-    logging.info('{} samples'.format(cnt))
+        idx = idx+1
+        if cnt % 1000 == 0:
+            logging.info('Processed {} samples'.format(cnt))
+    logging.info('Finish with {} samples'.format(cnt))
 
 def create_weka_mfcc_13():
     """
